@@ -62,9 +62,9 @@ const LoginForm = ({ onSubmit }) => {
         <h2 className="text-3xl font-bold text-gray-800">Welcome back!</h2>
         <p className="text-gray-500 mt-2">
           Don't have an account?{' '}
-          <a href="#" className="text-blue-600 hover:text-blue-500 font-medium">
+          <button type="button" className="text-blue-600 hover:text-blue-500 font-medium">
             Sign up
-          </a>
+          </button>
         </p>
       </div>
       
@@ -98,9 +98,9 @@ const LoginForm = ({ onSubmit }) => {
               />
               <span className="ml-2 text-sm text-gray-600">Remember Me</span>
             </label>
-            <a href="#" className="text-sm text-blue-600 hover:text-blue-500">
+            <button type="button" className="text-sm text-blue-600 hover:text-blue-500">
               Forgot Password?
-            </a>
+            </button>
           </div>
           
           <Button
