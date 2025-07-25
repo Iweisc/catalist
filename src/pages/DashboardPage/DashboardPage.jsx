@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import './DashboardPage.css';
 import FavoriteButton from '../../components/ui/FavoriteButton';
 import { useFavorites } from '../../hooks/useFavorites';
 
 const DashboardPage = () => {
-  const { toggleFavorite, isFavorite } = useFavorites();
+  const [activeTab, setActiveTab] = useState('all');
+  const { toggleFavorite, isFavorite, favorites } = useFavorites();
+
+  // Mock product data
+  const mockProducts = useMemo(() => [
+    { id: 'product-0', name: 'Dumonde Tech Lite 4-oz Bicycle Chain Lube (2015)', brand: 'Dumonde Tech', price: '$12.98', asin: 'B001ENVJD4', upc: '718122960736', moq: '126', buybox: '$23.47', fees: '$7.20', profit: '3.29%', tags: ['trending'] },
+    { id: 'product-1', name: 'Leupold Standard Scope Rings, 1" High with a Silver finish', brand: 'Leupold', price: '$12.98', asin: 'B001ENVJD4', upc: '718122960736', moq: '126', buybox: '$23.47', fees: '$7.20', profit: '3.29%',tags: ['new'] },
+    { id: 'product-2', name: 'Dumonde Tech Lite 4-oz Bicycle Chain Lube (2015)', brand: 'Dumonde Tech', price: '$12.98', asin: 'B001ENVJD4', upc: '718122960736', moq: '126', buybox: '$23.47', fees: '$7.20', profit: '3.29%', tags: ['trending'] },
+  ], []);
+
+  // Filter products based on active tab
+  const filteredProducts = useMemo(() => {
+    if (activeTab === 'favorites') {
+      return mockProducts.filter(product => favorites.includes(product.id));
+    }
+    // Add other tab filters here when needed
+    return mockProducts;
+  }, [mockProducts, favorites, activeTab]);
 
   return (
     <div className="master-catalogue">
@@ -78,11 +95,44 @@ const DashboardPage = () => {
         <div className="table-header">
             <div className="table-controls">
                 <div className="tabs-secondary">
-                    <button className="tab-secondary-item active"> <img src="assets/icons/all_products.png" alt="" /> <span>All Products</span></button>
-                    <button className="tab-secondary-item"> <img src="assets/icons/trending.png" alt="" /> <span>New This Month</span></button>
-                    <button className="tab-secondary-item"> <img src="assets/icons/rocket.png" alt="" /> <span>Top Sellers</span></button>
-                    <button className="tab-secondary-item"> <img src="assets/icons/bottle.png" alt="" /> <span>CatalistAI</span></button>
-                    <button className="tab-secondary-item"> <img src="assets/icons/star.png" alt="" /> <span>Your Favorites</span></button>
+                    <button
+                        className={`tab-secondary-item ${activeTab === 'all' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('all')}
+                    >
+                        <img src="assets/icons/all_products.png" alt="" />
+                        <span>All Products</span>
+                    </button>
+                    <button
+                        className={`tab-secondary-item ${activeTab === 'new' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('new')}
+                    >
+                        <img src="assets/icons/trending.png" alt="" />
+                        <span>New This Month</span>
+                    </button>
+                    <button
+                        className={`tab-secondary-item ${activeTab === 'topsellers' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('topsellers')}
+                    >
+                        <img src="assets/icons/rocket.png" alt="" />
+                        <span>Top Sellers</span>
+                    </button>
+                    <button
+                        className={`tab-secondary-item ${activeTab === 'catalistai' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('catalistai')}
+                    >
+                        <img src="assets/icons/bottle.png" alt="" />
+                        <span>CatalistAI</span>
+                    </button>
+                    <button
+                        className={`tab-secondary-item ${activeTab === 'favorites' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('favorites')}
+                    >
+                        <img src="assets/icons/star.png" alt="" />
+                        <span>Your Favorites</span>
+                        {favorites.length > 0 && (
+                            <span className="favorites-count">({favorites.length})</span>
+                        )}
+                    </button>
                 </div>
                 <button className="create-po-btn">
                     <img src="assets/icons/order_now.png" alt="Create Purchase Order" style={{height: "16px"}}/>
@@ -112,6 +162,7 @@ const DashboardPage = () => {
             <div className="table-row-header">
                 <input type="checkbox" />
                 <div>Product</div>
+                <div>Add to Favorites</div>
                 <div>Brand</div>
                 <div>Price</div>
                 <div>ASIN</div>
@@ -120,36 +171,54 @@ const DashboardPage = () => {
                 <div>Amazon Buybox</div>
                 <div>Amazon Fees</div>
                 <div>Profit</div>
-                <div>Margin</div>
-                <div>ROI</div>
-                <div>Add to Favorites</div>
             </div>
-            {Array(7).fill(0).map((_, i) => (
-                <div className="table-row" key={i}>
-                    <input type="checkbox" />
-                    <div className="product-info">
-                        <img src="assets/product_logo.png" alt="product" />
-                        <p>Dumonde Tech Lite 4-oz Bicycle Chain Lube (2015)</p>
-                    </div>
-                    <div>Dumonde Tech</div>
-                    <div>$12.98</div>
-                    <div>B001ENVJD4</div>
-                    <div>718122960736</div>
-                    <div>126</div>
-                    <div>$23.47</div>
-                    <div>$7.20</div>
-                    <div>3.29%</div>
-                    <div>14.00%</div>
-                    <div>51.82%</div>
-                    <div className="favorite-cell">
-                        <FavoriteButton
-                            productId={`product-${i}`}
-                            isFavorite={isFavorite(`product-${i}`)}
-                            onToggle={toggleFavorite}
-                        />
+            {filteredProducts.length === 0 ? (
+                <div className="table-row empty-state">
+                    <div className="empty-message">
+                        {activeTab === 'favorites'
+                            ? 'No favorites yet. Click the star icon to add products to your favorites!'
+                            : 'No products found matching your criteria.'}
                     </div>
                 </div>
-            ))}
+            ) : (
+                filteredProducts.map((product) => (
+                    <div className="table-row" key={product.id}>
+                        <input type="checkbox" />
+                        <div className="product-info">
+                            <img src="assets/product_logo.png" alt={product.name} />
+                            <div className="product-details">
+                                {product.tags && product.tags.length > 0 && (
+                                    <div className="product-tags">
+                                        {product.tags.map(tag => (
+                                            <span key={tag} className={`tag tag-${tag}`}>
+                                                {tag.charAt(0).toUpperCase() + tag.slice(1)}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                                <div className="product-name-wrapper">
+                                    <p>{product.name}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="favorite-cell">
+                            <FavoriteButton
+                                productId={product.id}
+                                isFavorite={isFavorite(product.id)}
+                                onToggle={toggleFavorite}
+                            />
+                        </div>
+                        <div>{product.brand}</div>
+                        <div>{product.price}</div>
+                        <div>{product.asin}</div>
+                        <div>{product.upc}</div>
+                        <div>{product.moq}</div>
+                        <div>{product.buybox}</div>
+                        <div>{product.fees}</div>
+                        <div>{product.profit}</div>
+                    </div>
+                ))
+            )}
         </div>
         <div className="table-footer">
             <div className="pagination">

@@ -1,13 +1,13 @@
 .favorite-button {
   background: none;
-  border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
   border-radius: 4px;
+  margin: 0 auto;
 }
 
 .favorite-button:hover {
@@ -20,22 +20,15 @@
 }
 
 .favorite-icon {
-  transition: all 0.2s ease;
-  width: 17px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
+  transition: transform 0.2s ease;
 }
 
-.favorite-icon.filled path {
-  fill: #FFD700;
+.favorite-icon.filled {
+  filter: grayscale(0%);
 }
 
-.favorite-icon.outline path {
-  fill: #6D6D6D;
-}
-
-.favorite-icon.hovered:not(.filled) path {
-  fill: #FFD700;
-}
 
 /* Animation for favorite toggle */
 .favorite-button.favorited {
@@ -46,4 +39,9 @@
   0% { transform: scale(1); }
   50% { transform: scale(1.2); }
   100% { transform: scale(1); }
+}
+
+/* Focus styles for accessibility */
+.favorite-button:focus {
+  outline: none;
 }

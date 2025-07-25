@@ -501,10 +501,11 @@
 .table-row-header,
 .table-row {
     display: grid;
-    grid-template-columns: 50px 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 50px 3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
     padding: 8px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    min-height: 73px;
 }
 
 .table-row-header {
@@ -512,10 +513,34 @@
     font-weight: 500;
 }
 
+.table-row-header > div:last-child,
+.table-row > div:last-child {
+    text-align: center;
+    justify-content: center;
+}
+
+.table-row-header > div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .product-info {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-direction: row;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-name-wrapper {
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 .product-info img {
@@ -523,6 +548,10 @@
     height: 36px;
     border: 1px solid #E5E7EB;
     border-radius: 4px;
+}
+
+.product-info p {
+    margin: 0;
 }
 
 .table-footer {
@@ -558,4 +587,76 @@
 
 .item-count {
     color: #71717A;
+}
+
+/* Empty state styling */
+.table-row.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    color: #6b7280;
+    font-style: italic;
+    grid-column: 1 / -1;
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Product tags */
+.product-tags {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.tag {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.tag-trending {
+    background-color: #FFEADA;
+    color: #FF7101;
+}
+
+.tag-new {
+    background-color: #E0F8F3;
+    color: #24BA9B;
+}
+
+.tag-bestseller {
+    background-color: #E5E8FF;
+    color: #0B24FB;
+}
+
+/* Favorites count badge */
+.favorites-count {
+    background-color: #0B24FB;
+    color: white;
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+/* Active tab styling */
+.tab-secondary-item.active .favorites-count {
+    background-color: white;
+    color: #0B24FB;
+}
+
+
+/* Favorite cell styling */
+.favorite-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
