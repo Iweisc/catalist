@@ -1,7 +1,11 @@
 import React from 'react';
 import './DashboardPage.css';
+import FavoriteButton from '../../components/ui/FavoriteButton';
+import { useFavorites } from '../../hooks/useFavorites';
 
 const DashboardPage = () => {
+  const { toggleFavorite, isFavorite } = useFavorites();
+
   return (
     <div className="master-catalogue">
       <div className="background-horizontal-border">
@@ -118,6 +122,7 @@ const DashboardPage = () => {
                 <div>Profit</div>
                 <div>Margin</div>
                 <div>ROI</div>
+                <div>Add to Favorites</div>
             </div>
             {Array(7).fill(0).map((_, i) => (
                 <div className="table-row" key={i}>
@@ -136,6 +141,13 @@ const DashboardPage = () => {
                     <div>3.29%</div>
                     <div>14.00%</div>
                     <div>51.82%</div>
+                    <div className="favorite-cell">
+                        <FavoriteButton
+                            productId={`product-${i}`}
+                            isFavorite={isFavorite(`product-${i}`)}
+                            onToggle={toggleFavorite}
+                        />
+                    </div>
                 </div>
             ))}
         </div>
