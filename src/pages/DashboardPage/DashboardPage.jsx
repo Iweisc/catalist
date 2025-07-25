@@ -6,6 +6,23 @@ import { useFavorites } from '../../hooks/useFavorites';
 const DashboardPage = () => {
   const [activeTab, setActiveTab] = useState('all');
   const { toggleFavorite, isFavorite, favorites } = useFavorites();
+  const [selectedProducts, setSelectedProducts] = useState([]);
+
+  const toggleProductSelection = (productId) => {
+    setSelectedProducts(prevSelected =>
+      prevSelected.includes(productId)
+        ? prevSelected.filter(id => id !== productId)
+        : [...prevSelected, productId]
+    );
+  };
+
+  const handleSelectAll = (e) => {
+    if (e.target.checked) {
+      setSelectedProducts(mockProducts.map(p => p.id));
+    } else {
+      setSelectedProducts([]);
+    }
+  };
 
   // Mock product data
   const mockProducts = useMemo(() => [
@@ -139,11 +156,16 @@ const DashboardPage = () => {
                       </button>
                   </div>
                   <div className="tooltip-container">
-                    <button className="create-po-btn">
+                    <button
+                      className="create-po-btn"
+                      disabled={selectedProducts.length === 0}
+                    >
                         <img src="assets/icons/order_now.png" alt="Create Purchase Order" style={{height: "16px"}}/>
                         Create Purchase Order
                     </button>
-                    <div className="tooltip">Select product(s) from the table to create a purchase order</div>
+                    {selectedProducts.length === 0 && (
+                      <div className="tooltip">Select product(s) from the table to create a purchase order</div>
+                    )}
                   </div>
               </div>
               <div className="table-filters">
@@ -163,11 +185,15 @@ const DashboardPage = () => {
                       <button className='download-csv'><img src="assets/icons/download.png" alt="Download CSV" />Download CSV</button>
                   </div>
               </div>
-              <div className="selected-products-count">0 product(s) selected</div>
+              <div className="selected-products-count">{selectedProducts.length} product(s) selected</div>
           </div>
           <div className="table-body">
               <div className="table-row-header">
-                  <input type="checkbox" />
+                  <input
+                    type="checkbox"
+                    onChange={handleSelectAll}
+                    checked={selectedProducts.length === mockProducts.length && mockProducts.length > 0}
+                  />
                   <div>Product</div>
                   <div>Add to Favorites</div>
                   <div>Brand</div>
@@ -190,7 +216,11 @@ const DashboardPage = () => {
               ) : (
                   filteredProducts.map((product) => (
                       <div className="table-row" key={product.id}>
-                          <input type="checkbox" />
+                          <input
+                            type="checkbox"
+                            checked={selectedProducts.includes(product.id)}
+                            onChange={() => toggleProductSelection(product.id)}
+                          />
                           <div className="product-info">
                               <img src="assets/product_logo.png" alt={product.name} />
                               <div className="product-details">
