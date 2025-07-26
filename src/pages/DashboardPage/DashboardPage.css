@@ -269,6 +269,7 @@
     height: 60px;
     background: #FFFFFF;
     border-radius: 6px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .tab-item {
@@ -292,6 +293,7 @@
 .tab-item.active {
     background: #0B24FB;
     color: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .tab-item:not(.active) {
@@ -576,24 +578,52 @@
 .pagination {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .pagination span {
-    padding: 5px 10px;
-    border-radius: 2px;
+    padding: 6px 12px;
     cursor: pointer;
+    border-right: 1px solid #D9D9D9;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.pagination span:last-child {
+    border-right: none;
+}
+
+.pagination span:hover {
+    background: #f5f5f5;
 }
 
 .pagination span.active {
-    border: 1px solid #2A3FFB;
+    background: #FFFFFF;
     color: #2A3FFB;
+    border: 1px solid #2A3FFB;
+}
+
+.pagination span.arrow {
+    color: #A0AEC0;
 }
 
 .page-size {
     border: 1px solid #D9D9D9;
     border-radius: 2px;
     padding: 5px 12px;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.page-size img {
+    width: 12px;
+    height: 12px;
 }
 
 .item-count {
@@ -716,4 +746,8 @@
 .tooltip-container:hover .tooltip {
     visibility: visible;
     opacity: 1;
+}
+
+.bottom-spacer {
+    height: 50px;
 }

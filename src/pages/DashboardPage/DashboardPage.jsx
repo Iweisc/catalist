@@ -185,7 +185,9 @@ const DashboardPage = () => {
                       <button className='download-csv'><img src="assets/icons/download.png" alt="Download CSV" />Download CSV</button>
                   </div>
               </div>
-              <div className="selected-products-count">{selectedProducts.length} product(s) selected</div>
+              <div className="table-subheader">
+                <div className="selected-products-count">{selectedProducts.length} product(s) selected</div>
+              </div>
           </div>
           <div className="table-body">
               <div className="table-row-header">
@@ -259,29 +261,31 @@ const DashboardPage = () => {
                   ))
               )}
           </div>
-          <div className="table-footer" style={{ position: 'relative' }}>
-              <div className="pagination" style={{ left: '160px', position: 'relative' }}>
-                      <span>{'<'}</span>
-                      <span>1</span>
-                      <span>...</span>
-                      <span>4</span>
-                      <span>5</span>
-                      <span className="active">6</span>
-                      <span>7</span>
-                      <span>8</span>
-                      <span>...</span>
-                      <span>50</span>
-                      <span>{'>'}</span>
-                  </div>
-              <div className="page-size" style={{ position: 'relative', left: '150px' }}>
-                  <span>10/page</span>
+          <div className="table-footer">
+              <div className="pagination" style={{ position: 'relative', left: '160px' }}>
+                  <span className="arrow">{'<'}</span>
+                  <span>1</span>
+                  <span>...</span>
+                  <span>4</span>
+                  <span>5</span>
+                  <span className="active">6</span>
+                  <span>7</span>
+                  <span>8</span>
+                  <span>...</span>
+                  <span>50</span>
+                  <span className="arrow">{'>'}</span>
               </div>
-              <div className="item-count" style={{ position: 'relative', top: '50px', left: '-280px' }}>
+              <button className="page-size" style={{ position: 'relative', left: '160px' }}>
+                  10/page
+                  <img src="https://img.icons8.com/ios-glyphs/30/000000/chevron-down.png" alt="dropdown" />
+              </button>
+              <div className="item-count" style={{ position: 'relative', left: '-230px', top: '47px' }}>
                   Showing 1-100 of 1335 items
               </div>
           </div>
         </div>
       </div>
+      <div className="bottom-spacer"></div>
     </div>
   );
 };
