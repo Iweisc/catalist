@@ -3,6 +3,7 @@ import './DashboardPage.css';
 import FavoriteButton from '../../components/ui/FavoriteButton';
 import { useFavorites } from '../../hooks/useFavorites';
 import mockProducts from '../../data/products.json';
+import Navbar from '../../components/layout/Navbar';
 
 const DashboardPage = () => {
   const [activeTab, setActiveTab] = useState('all');
@@ -36,24 +37,7 @@ const DashboardPage = () => {
 
   return (
     <div className="master-catalogue">
-      <div className="background-horizontal-border">
-        <img src="assets/logo.png" alt="Catalist Group" className="catalist-group-logo" />
-        <div className="header-buttons">
-          <button className="button master-catalogue-btn">
-            <img src="assets/icons/master_catalouge.png" alt="Master Catalogue" />
-            <span>Master Catalogue</span>
-          </button>
-          <button className="button purchase-orders-btn">
-            <img src="assets/icons/cart_2.png" alt="Purchase Orders" />
-            <span>Purchase Orders</span>
-          </button>
-        </div>
-        <div className="user-profile">
-          <img src="assets/icons/pfp.png" alt="Ivana Morgan" className="pfp" />
-          <span>Ivana Morgan</span>
-          <img src="https://img.icons8.com/ios-glyphs/30/000000/chevron-down.png" alt="dropdown" />
-        </div>
-      </div>
+      <Navbar />
       <div className="dashboard-content">
         <div className="dashboard-header">
           <h1>Welcome, Ivana!</h1>

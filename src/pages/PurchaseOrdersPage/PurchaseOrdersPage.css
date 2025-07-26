@@ -1,0 +1,169 @@
+.purchase-orders {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #F1F5FD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.purchase-orders-content {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 48px;
+    box-sizing: border-box;
+    margin-top: 81px;
+}
+
+.purchase-orders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.purchase-orders-header h1 {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 44px;
+    color: #232323;
+}
+
+.create-new-order-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 188px;
+    height: 40px;
+    background: #0B24FB;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.purchase-orders-container {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8.4px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.purchase-orders-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar img {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+}
+
+.search-bar input {
+    width: 368px;
+    height: 36px;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    padding: 8px 12px 8px 36px;
+}
+
+.table-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.edit-columns-btn, .download-csv {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    background: #FFFFFF;
+    padding: 0 16px;
+    cursor: pointer;
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4B5563;
+}
+
+.orders-table {
+    width: 100%;
+}
+
+.table-header, .table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 16px 0;
+    border-bottom: 1px solid #E4E4E7;
+}
+
+.table-header {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4B5563;
+}
+
+.table-row {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #111827;
+}
+
+.status-badge {
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.status-badge.received {
+    background: #E0F8F3;
+    color: #24BA9B;
+}
+
+.view-details-btn {
+    width: 110px;
+    height: 32px;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    background: #FFFFFF;
+    cursor: pointer;
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4B5563;
+}
+.bottom-spacer {
+    height: 50px;
+}

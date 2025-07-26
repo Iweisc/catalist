@@ -57,8 +57,13 @@
 
 .master-catalogue-btn {
     width: 184.57px;
-    background: #011638;
+    background: #FFFFFF;
     border: 1px solid #E4E4E7;
+    color: #4B5563;
+}
+
+.master-catalogue-btn.active {
+    background: #011638;
     color: #FFFFFF;
 }
 
@@ -73,6 +78,16 @@
     background: #FFFFFF;
     border: 1px solid #E4E4E7;
     color: #4B5563;
+    text-decoration: none;
+}
+
+.purchase-orders-btn.active {
+    background: #011638;
+    color: #FFFFFF;
+}
+
+.master-catalogue-btn {
+    text-decoration: none;
 }
 
 .purchase-orders-btn img {
