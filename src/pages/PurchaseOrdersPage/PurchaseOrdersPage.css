@@ -154,3 +154,62 @@
 .bottom-spacer {
     height: 50px;
 }
+
+.edit-columns-icon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .purchase-orders-content {
+        padding: 0 16px;
+        margin-top: 20px;
+    }
+
+    .purchase-orders-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .purchase-orders-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .po-search-bar {
+        width: 100%;
+        position: relative;
+    }
+    
+    .po-search-bar .edit-columns-icon {
+        display: block;
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .po-search-bar input {
+        width: 100%;
+    }
+
+    .po-table-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .po-download-csv-btn {
+        display: none;
+    }
+
+    .orders-table {
+        overflow-x: auto;
+    }
+
+    .orders-table-header,
+    .orders-table-row {
+        min-width: 800px;
+    }
+}

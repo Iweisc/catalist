@@ -772,6 +772,12 @@
 .bottom-spacer {
     height: 50px;
 }
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+}
+
 @media (max-width: 1200px) {
     .master-catalogue {
         overflow-x: hidden;

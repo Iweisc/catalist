@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PurchaseOrdersPage.css';
 import Navbar from '../../components/layout/Navbar/Navbar';
 
 const PurchaseOrdersPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // Mock purchase orders data
   const purchaseOrders = [
@@ -39,26 +51,29 @@ const PurchaseOrdersPage = () => {
         <div className="purchase-orders-container">
           <div className="purchase-orders-controls">
             <div className="po-search-bar">
-              <input 
-                type="text" 
-                placeholder="Search products" 
+              <input
+                type="text"
+                placeholder="Search products"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                style={{outline:"none"}} 
+                style={{outline:"none"}}
               />
-              <img src="assets/icons/search_icon.png" alt="Search" />
+              <img src="/assets/icons/search_icon.png" alt="Search" />
+              {isMobile && <img src="/assets/icons/grid_icon.png" alt="Edit Columns" className="edit-columns-icon" />}
             </div>
             
-            <div className="po-table-actions">
-              <button className='po-edit-columns-btn'>
-                <img src="assets/icons/grid_icon.png" alt="Edit Columns" />
-                Edit Columns
-              </button>
-              <button className='po-download-csv-btn'>
-                <img src="assets/icons/download.png" alt="Download CSV" />
-                Download CSV
-              </button>
-            </div>
+            {!isMobile && (
+              <div className="po-table-actions">
+                <button className='po-edit-columns-btn'>
+                  <img src="/assets/icons/grid_icon.png" alt="Edit Columns" />
+                  Edit Columns
+                </button>
+                <button className='po-download-csv-btn'>
+                  <img src="/assets/icons/download.png" alt="Download CSV" />
+                  Download CSV
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="orders-table">

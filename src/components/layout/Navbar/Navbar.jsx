@@ -6,7 +6,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div className="background-horizontal-border">
+    <div className="background-horizontal-border desktop-nav">
       <img src="/assets/logo.png" alt="Catalist Group" className="catalist-group-logo" />
       <div className="header-buttons">
         <Link to="/dashboard" className={`button master-catalogue-btn ${location.pathname.includes('/dashboard') ? 'active' : ''}`}>
