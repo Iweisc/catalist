@@ -15,31 +15,30 @@ const PurchaseOrdersPage = () => {
       status: 'Received'
     },
     {
-      id: '294',
-      date: 'July 14, 2025',
-      items: '256 items',
-      totalAmount: '$3,421.89',
+      id: '293',
+      date: 'July 13, 2025',
+      items: '343 items',
+      totalAmount: '$4,752.67',
       status: 'Received'
     }
   ];
 
   return (
-    <div className="purchase-orders">
+    <div className="purchase-orders-page">
       <Navbar />
       
       <div className="purchase-orders-content">
         <div className="purchase-orders-header">
           <h1>Purchase Orders</h1>
           <button className="create-new-order-btn">
-            <img src="assets/icons/new_icon.svg" alt="Plus" />
+            <img src="/assets/icons/plus_icon.png" alt="Create New Order" />
             Create New Order
           </button>
         </div>
 
         <div className="purchase-orders-container">
           <div className="purchase-orders-controls">
-            <div className="search-bar">
-              <img src="assets/icons/search_icon.png" alt="Search" />
+            <div className="po-search-bar">
               <input 
                 type="text" 
                 placeholder="Search products" 
@@ -47,14 +46,15 @@ const PurchaseOrdersPage = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{outline:"none"}} 
               />
+              <img src="assets/icons/search_icon.png" alt="Search" />
             </div>
             
-            <div className="table-actions">
-              <button className='edit-columns-btn'>
+            <div className="po-table-actions">
+              <button className='po-edit-columns-btn'>
                 <img src="assets/icons/grid_icon.png" alt="Edit Columns" />
                 Edit Columns
               </button>
-              <button className='download-csv'>
+              <button className='po-download-csv-btn'>
                 <img src="assets/icons/download.png" alt="Download CSV" />
                 Download CSV
               </button>
@@ -62,7 +62,7 @@ const PurchaseOrdersPage = () => {
           </div>
 
           <div className="orders-table">
-            <div className="table-header">
+            <div className="orders-table-header">
               <div>Order ID</div>
               <div>Date</div>
               <div>Items</div>
@@ -71,9 +71,9 @@ const PurchaseOrdersPage = () => {
               <div>Actions</div>
             </div>
             
-            <div className="table-body">
-              {purchaseOrders.map((order) => (
-                <div className="table-row" key={order.id}>
+            <div className="orders-table-body">
+              {purchaseOrders.map((order, index) => (
+                <div className="orders-table-row" key={index}>
                   <div>{order.id}</div>
                   <div>{order.date}</div>
                   <div>{order.items}</div>

@@ -60,6 +60,12 @@
     background: #011638;
     border: 1px solid #E4E4E7;
     color: #FFFFFF;
+    text-decoration: none;
+}
+
+.master-catalogue-btn:not(.active) {
+    background: #FFFFFF;
+    color: #4B5563;
 }
 
 .master-catalogue-btn img {
@@ -73,6 +79,12 @@
     background: #FFFFFF;
     border: 1px solid #E4E4E7;
     color: #4B5563;
+    text-decoration: none;
+}
+
+.purchase-orders-btn.active {
+    background: #011638;
+    color: #FFFFFF;
 }
 
 .purchase-orders-btn img {
