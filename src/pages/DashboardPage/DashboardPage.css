@@ -151,14 +151,13 @@
     font-size: 24px;
     line-height: 33px;
     color: #232323;
-    position: relative;
-    left: -572px;
 }
 
 .stats-container {
     margin-top: 24px;
     display: flex;
     gap: 28px;
+    flex-wrap: wrap;
 }
 
 .stat-card {
@@ -320,12 +319,15 @@
     flex-direction: column;
     gap: 16px;
     margin-bottom: 16px;
+    flex-wrap: wrap;
 }
 
 .table-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .tabs-secondary {
@@ -389,8 +391,6 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    position: relative;
-    top: 57px;
 }
 
 .create-po-btn:disabled {
@@ -402,6 +402,7 @@
     display: flex;
     gap: 12px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 
@@ -422,12 +423,18 @@
     height: 12px;
 }
 
+.table-subheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
 .selected-products-count {
     font-size: 14px;
     color: #595959;
-    margin-top: 16px;
-    position: relative;
-    left: -563px;
     font-weight: 700;
 }
 
@@ -435,8 +442,8 @@
     margin-left: auto;
     display: flex;
     gap: 12px;
-    position: relative;
-    top: 62px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .table-actions .download-csv{
@@ -751,7 +758,7 @@
 .bottom-spacer {
     height: 50px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .master-catalogue {
         overflow-x: hidden;
     }
@@ -900,12 +907,6 @@
     .table-filters button {
         width: 100%;
         justify-content: center;
-    }
-
-    .selected-products-count {
-        left: 0;
-        text-align: center;
-        width: 100%;
     }
 
     .table-body {
