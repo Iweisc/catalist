@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import './DashboardPage.css';
 import FavoriteButton from '../../components/ui/FavoriteButton';
 import { useFavorites } from '../../hooks/useFavorites';
+import mockProducts from '../../data/products.json';
 
 const DashboardPage = () => {
   const [activeTab, setActiveTab] = useState('all');
@@ -24,16 +25,6 @@ const DashboardPage = () => {
     }
   };
 
-  // Mock product data
-  const mockProducts = useMemo(() => [
-    { id: 'product-0', name: 'Dumonde Tech Lite 4-oz Bicycle Chain Lube (2015)', brand: 'Dumonde Tech', price: '$12.98', asin: 'B001ENVJD4', upc: '718122960736', moq: '126', buybox: '$23.47', fees: '$7.20', profit: '3.29%', tags: ['trending'] },
-    { id: 'product-1', name: 'Leupold Standard Scope Rings, 1" High with a Silver finish', brand: 'Leupold', price: '$12.98', asin: 'B001ENVJD4', upc: '718122960736', moq: '126', buybox: '$23.47', fees: '$7.20', profit: '3.29%',},
-    { id: 'product-2', name: 'Dumonde Tech Lite 4-oz Bicycle Chain Lube (2015)', brand: 'Dumonde Tech', price: '$12.98', asin: 'B001ENVJD4', upc: '718122960736', moq: '126', buybox: '$23.47', fees: '$7.20', profit: '3.29%', tags: ['trending'] },
-    { id: 'product-3', name: 'Dumonde Tech Pro-X Freehub Grease One Color, 1oz', brand: 'Dumonde Tech', price: '$12.98', asin: 'B001ENVJD4', upc: '718122960736', moq: '126', buybox: '$23.47', fees: '$7.20', profit: '3.29%', },
-    { id: 'product-4', name: 'Dumonde Tech Lite 4-oz Bicycle Chain Lube (2015)', brand: 'Dumonde Tech', price: '$12.98', asin: 'B001ENVJD4', upc: '718122960736', moq: '126', buybox: '$23.47', fees: '$7.20', profit: '3.29%', tags: [] },
-    { id: 'product-5', name: 'Dumonde Tech Lite 4-oz Bicycle Chain Lube (2015)', brand: 'Dumonde Tech', price: '$12.98', asin: 'B001ENVJD4', upc: '718122960736', moq: '126', buybox: '$23.47', fees: '$7.20', profit: '3.29%', tags: [] },
-  ], []);
-
   // Filter products based on active tab
   const filteredProducts = useMemo(() => {
     if (activeTab === 'favorites') {
@@ -41,7 +32,7 @@ const DashboardPage = () => {
     }
     // Add other tab filters here when needed
     return mockProducts;
-  }, [mockProducts, favorites, activeTab]);
+  }, [favorites, activeTab]);
 
   return (
     <div className="master-catalogue">
