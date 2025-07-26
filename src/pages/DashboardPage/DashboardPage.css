@@ -751,3 +751,202 @@
 .bottom-spacer {
     height: 50px;
 }
+@media (max-width: 768px) {
+    .master-catalogue {
+        overflow-x: hidden;
+    }
+    .dashboard-content {
+        padding: 0 16px;
+    }
+
+    .background-horizontal-border {
+        position: static;
+        height: auto;
+        padding: 10px 16px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header-buttons, .user-profile {
+        display: none !important;
+    }
+    
+    .catalist-group-logo {
+        margin: 0;
+        width: 150px;
+    }
+
+    .dashboard-header {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard-header h1 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .dashboard-header a {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+
+    .master-catalogue-title {
+        font-size: 20px;
+        position: static;
+        text-align: center;
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .stat-card {
+        width: 100%;
+        align-items: center;
+        padding: 16px;
+    }
+    
+    .stat-header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stat-value {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    
+    .stat-label-1, .stat-label-2, .stat-label-3 {
+        position: static;
+        padding-left: 0;
+        text-align: center;
+        width: 100%;
+        margin-top: 8px;
+        font-size: 16px;
+    }
+
+    .stat-tag {
+        font-size: 11px;
+        padding: 1px 6px;
+        white-space: normal;
+        height: auto;
+        line-height: 1.5;
+    }
+
+    .tabs {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 16px 0;
+    }
+
+    .tab-item {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .table-container {
+        padding: 16px;
+        height: auto;
+    }
+
+    .table-controls, .table-filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    .tabs-secondary {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tab-secondary-item {
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+    .table-actions {
+        top: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-left: 0;
+    }
+    
+    .create-po-btn {
+        top: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .table-filters button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .selected-products-count {
+        left: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .table-body {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+    }
+
+    .table-row-header, .table-row {
+       min-width: 1200px; /* Force horizontal scroll */
+    }
+
+    .product-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .table-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .pagination, .page-size, .item-count {
+        position: static !important;
+        left: unset !important;
+        top: unset !important;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .pagination span {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .page-size {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
