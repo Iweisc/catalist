@@ -444,6 +444,8 @@
     gap: 12px;
     flex-wrap: wrap;
     justify-content: flex-end;
+    position: relative;
+    top: 42px;
 }
 
 .table-actions .download-csv{
