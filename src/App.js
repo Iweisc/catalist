@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import PurchaseOrdersPage from './pages/PurchaseOrdersPage';
+import OrderDetailsPage from './pages/OrderDetailsPage';
 import MobileNav from './components/layout/MobileNav';
 import './App.css';
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/purchase-orders" element={<PurchaseOrdersPage />} />
+          <Route path="/order-details/:orderId" element={<OrderDetailsPage />} />
         </Routes>
       </div>
     </Router>

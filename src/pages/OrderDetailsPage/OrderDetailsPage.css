@@ -1,0 +1,208 @@
+.order-details-page {
+    background: #F1F5FD;
+    min-height: 100vh;
+}
+
+.order-details-content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.order-summary-card {
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8.4px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    max-width: 897px;
+    margin: 0 auto;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #E4E4E7;
+}
+
+.company-info {
+    display: flex;
+    gap: 16px;
+}
+
+.company-logo {
+    /* position: relative; */
+}
+
+.company-text {
+    /* position: relative; */
+}
+
+.company-info img {
+    height: 40px;
+}
+
+.company-info p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.company-address p {
+    margin: 0;
+    font-size: 9px;
+    text-align: right;
+}
+
+.card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 24px 0;
+    gap: 24px;
+}
+
+.billed-to h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.billed-to h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.billed-to {
+    position: relative;
+}
+
+.billed-to p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.order-id-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.order-id-section {
+    position: relative;
+    left: -70px;
+    top: 41px;
+}
+
+.order-id-section p {
+    font-size: 16px;
+}
+
+.download-order button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    padding: 10px 16px;
+    color: #0B24FB;
+    cursor: pointer;
+    position: relative;
+    left: 670px;
+    top: -250px;
+}
+
+.download-order button img {
+    width: 20px;
+}
+
+.items-table {
+    border-top: 1px solid #D5D5D5;
+}
+
+.items-table .table-header,
+.items-table .table-row {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+    padding: 16px;
+}
+
+.items-table .table-header {
+    background: #FAFAFA;
+    font-weight: 500;
+    border-bottom: 1px solid #D5D5D5;
+}
+
+.items-table .table-body {
+    border: none;
+}
+
+.card-footer {
+    text-align: right;
+    padding-top: 24px;
+    border-top: 1px solid #D5D5D5;
+}
+
+.amount-due-txt {
+    font-size: large;
+    font-weight: 500;
+    position: relative;
+    left: 482px;
+}
+
+.amount-due-num{
+    font-size: large;
+    font-weight: 500;
+    position: relative;
+    left: 347px;
+    color: #0B24FB;
+    font-size: 18px;
+}
+
+.page-actions-container {
+    background: #FFFFFF;
+    padding: 24px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px -2px 8.4px rgba(0, 0, 0, 0.08);
+}
+
+.page-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.back-to-orders-btn,
+.print-order-btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.back-to-orders-btn {
+    border: 1px solid #D1D5DB;
+    background: #FFFFFF;
+    color: #000000;
+}
+
+.print-order-btn {
+    border: 1px solid #4E60FA;
+    background: #FFFFFF;
+    color: #253CF9;
+}
+
+.subtotal-amount{
+    font-size: large;
+    font-weight: 500;
+    position: relative;
+    left: 542px;
+}

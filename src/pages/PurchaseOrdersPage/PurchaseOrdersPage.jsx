@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './PurchaseOrdersPage.css';
 import Navbar from '../../components/layout/Navbar/Navbar';
 
 const PurchaseOrdersPage = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -97,7 +99,7 @@ const PurchaseOrdersPage = () => {
                     <span className="status-badge received">{order.status}</span>
                   </div>
                   <div>
-                    <button className="view-details-btn">View details</button>
+                    <button onClick={() => navigate(`/order-details/${order.id}`)} className="view-details-btn">View details</button>
                   </div>
                 </div>
               ))}
