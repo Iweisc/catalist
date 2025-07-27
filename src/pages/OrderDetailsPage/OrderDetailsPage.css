@@ -41,7 +41,8 @@
 }
 
 .company-text {
-    /* position: relative; */
+     position: relative;
+     left: 332px;
 }
 
 .company-info img {

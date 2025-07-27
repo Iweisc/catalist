@@ -14,7 +14,7 @@ const Navbar = () => {
           <span>Master Catalogue</span>
         </Link>
         <Link to="/purchase-orders" className={`button purchase-orders-btn ${location.pathname.includes('/purchase-orders') ? 'active' : ''}`}>
-          <img src={location.pathname.includes('/purchase-orders') ? "/assets/icons/cart_active.png" : "/assets/icons/cart_2.png"} alt="Purchase Orders" />
+          <img src={location.pathname.includes('/purchase-orders && /order-details') ? "/assets/icons/cart_active.png" : "/assets/icons/cart_2.png"} alt="Purchase Orders" />
           <span>Purchase Orders</span>
         </Link>
       </div>
